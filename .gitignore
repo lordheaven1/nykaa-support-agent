@@ -1,0 +1,6 @@
+.venv/
+__pycache__/
+chroma_db/
+checkpoints.sqlite
+logs/
+.env
