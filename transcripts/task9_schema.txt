@@ -1,0 +1,14 @@
+﻿======================================================================
+TASK 9: JSON SCHEMA VALIDATION VERIFICATION
+======================================================================
+
+1. Live Agent Responses Schema Verification:
+  [Response 1 (rag)]: PASS (Schema Valid)
+  [Response 2 (order_status)]: PASS (Schema Valid)
+  [Response 3 (refused)]: PASS (Schema Valid)
+
+2. Deliberate Malformed Payload Test:
+  Malformed payload check: PASS (Successfully caught error)
+  Caught ValidationError:  'grounded' is a required property
+
+======================================================================

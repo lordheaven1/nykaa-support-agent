@@ -1,0 +1,17 @@
+﻿======================================================================
+TASK 8: MULTI-TURN MEMORY DEMO (Shared Conversation)
+======================================================================
+
+[Turn 1]: User: "status of ORD-0012"
+  - Route:       order_status
+  - Answer:      Order ORD-0012 is currently 'Returned'. Order value: Rs 1760. Normal priority: Order is resolved (Returned). Escalation score is 0.0000.
+
+[Turn 2]: User: "is it delayed?"
+  - Route:       order_status
+  - Resolved ID: ORD-0012
+  - Answer:      Order ORD-0012 is currently 'Returned'. Order value: Rs 1760. Normal priority: Order is resolved (Returned). Escalation score is 0.0000.
+
+[Disk Memory State]:
+  - Remembered last_order_id: ORD-0012
+  - Turns recorded:           2
+======================================================================

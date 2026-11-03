@@ -1,0 +1,17 @@
+﻿======================================================================
+TASK 7: LANGGRAPH ROUTING DEMO (rag vs order_status)
+======================================================================
+
+[Test 1 - Policy]: "How long do I have to return a lipstick?"
+  - Route Taken:           rag
+  - Grounded:              True
+  - Sources:               ['return_window']
+  - Answer:                According to Nykaa policy: Beauty, makeup, cosmetics, skincare, and personal care items carry a strict 5-day return window and must remain unopened with their original seal intact.
+
+[Test 2 - Order Status]: "What is the status of ORD-0012?"
+  - Route Taken:           order_status
+  - Grounded:              False
+  - Tool Data (Status):    Returned
+  - Answer:                Order ORD-0012 is currently 'Returned'. Order value: Rs 1760. Normal priority: Order is resolved (Returned). Escalation score is 0.0000.
+
+======================================================================

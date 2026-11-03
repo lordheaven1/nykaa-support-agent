@@ -1,0 +1,12 @@
+﻿======================================================================
+TASK 8: FRESH CONVERSATION DEMO (No Memory Context)
+======================================================================
+
+[Fresh Conversation]: User: "is it delayed?"
+  - Route:       rag
+  - Answer:      According to Nykaa policy: Delays surpassing 5 days or claims involving disputed refunds and missing packages are routed directly to Level 3 Senior Operations.
+  - Tool Data:   None
+
+[Disk Memory State]:
+  - Remembered last_order_id: None
+======================================================================

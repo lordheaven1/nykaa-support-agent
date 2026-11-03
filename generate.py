@@ -8,12 +8,8 @@ non-support domain guardrail to refuse both unrelated and near-miss brand querie
 from typing import Any, Dict, List
 from rag_core import retrieve
 
-# Calibrated operational threshold for deployed collection (kb_sentence):
-# Placed between max purely unrelated query (0.1510) and min conversational in-scope query (0.3453)
 SIMILARITY_THRESHOLD = 0.30
 
-# Deterministic guardrail for near-miss corporate/investor queries that mention "Nykaa"
-# and overlap lexically with financial tokens in loyalty/payment docs.
 OUT_OF_SCOPE_KEYWORDS = {
     "share price",
     "stock exchange",
@@ -48,6 +44,7 @@ def answer(query: str, collection_name: str = "kb_sentence", threshold: float = 
             "answer": "I don't know based on the Nykaa knowledge base.",
             "sources": [],
             "top_similarity": round(top_sim, 4),
+            "top_chunk_text": "",
             "grounded": False,
         }
 
@@ -65,6 +62,7 @@ def answer(query: str, collection_name: str = "kb_sentence", threshold: float = 
         "answer": extractive_answer,
         "sources": sources,
         "top_similarity": round(top_chunk["similarity"], 4),
+        "top_chunk_text": clean_text,
         "grounded": True,
     }
 
