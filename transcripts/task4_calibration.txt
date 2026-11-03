@@ -1,0 +1,58 @@
+﻿======================================================================
+TASK 4: THRESHOLD CALIBRATION EXPERIMENT
+======================================================================
+
+======================================================================
+CALIBRATION TABLE: Collection 'kb_fixed'
+======================================================================
+Type         | Top-1 Sim  | Top Doc              | Query
+----------------------------------------------------------------------
+IN-SCOPE     | 0.4522     | return_window        | "How many days do I have to return a face serum?"
+IN-SCOPE     | 0.3506     | size_exchange        | "My shoes don't fit, can I swap them?"
+IN-SCOPE     | 0.6773     | cod_refund           | "When will my COD refund arrive?"
+IN-SCOPE     | 0.4337     | payment_failure      | "What happens if my payment fails?"
+IN-SCOPE     | 0.5715     | loyalty_points       | "How do I redeem loyalty points?"
+IN-SCOPE     | 0.3497     | damaged_item         | "My package arrived broken with cracked bottles, what do I do?"
+----------------------------------------------------------------------
+OUT-OF-SCOPE | 0.0974     | international_shipping | "What is the capital of France?"
+OUT-OF-SCOPE | 0.0848     | payment_failure      | "How do I bake a chocolate cake?"
+OUT-OF-SCOPE | 0.1510     | loyalty_points       | "Who won the cricket world cup?"
+OUT-OF-SCOPE | 0.0978     | warranty             | "What is Python programming language?"
+OUT-OF-SCOPE | 0.4812     | loyalty_points       | "What is Nykaa's current share price on the stock exchange?"
+======================================================================
+CLUSTER ANALYSIS (kb_fixed):
+  - In-Scope Cluster:     [0.3497, 0.6773] (Min: 0.3497)
+  - Out-of-Scope Cluster: [0.0848, 0.4812] (Max: 0.4812)
+  - Cluster Overlap:      0.1315 (Near-miss out-of-scope query overlap)
+  - Defensive Threshold:  0.4912 (Conservative rejection boundary)
+
+======================================================================
+CALIBRATION TABLE: Collection 'kb_sentence'
+======================================================================
+Type         | Top-1 Sim  | Top Doc              | Query
+----------------------------------------------------------------------
+IN-SCOPE     | 0.4220     | return_window        | "How many days do I have to return a face serum?"
+IN-SCOPE     | 0.3453     | size_exchange        | "My shoes don't fit, can I swap them?"
+IN-SCOPE     | 0.7956     | cod_refund           | "When will my COD refund arrive?"
+IN-SCOPE     | 0.4583     | payment_failure      | "What happens if my payment fails?"
+IN-SCOPE     | 0.5974     | loyalty_points       | "How do I redeem loyalty points?"
+IN-SCOPE     | 0.3677     | damaged_item         | "My package arrived broken with cracked bottles, what do I do?"
+----------------------------------------------------------------------
+OUT-OF-SCOPE | 0.0864     | international_shipping | "What is the capital of France?"
+OUT-OF-SCOPE | 0.0779     | cod_refund           | "How do I bake a chocolate cake?"
+OUT-OF-SCOPE | 0.1236     | return_window        | "Who won the cricket world cup?"
+OUT-OF-SCOPE | 0.0875     | escalation_matrix    | "What is Python programming language?"
+OUT-OF-SCOPE | 0.4771     | loyalty_points       | "What is Nykaa's current share price on the stock exchange?"
+======================================================================
+CLUSTER ANALYSIS (kb_sentence):
+  - In-Scope Cluster:     [0.3453, 0.7956] (Min: 0.3453)
+  - Out-of-Scope Cluster: [0.0779, 0.4771] (Max: 0.4771)
+  - Cluster Overlap:      0.1318 (Near-miss out-of-scope query overlap)
+  - Defensive Threshold:  0.4871 (Conservative rejection boundary)
+
+======================================================================
+FINAL CALIBRATION SUMMARY & DECISION
+======================================================================
+kb_fixed:    Min In-Scope = 0.3497 | Max Out-of-Scope = 0.4812 | Threshold = 0.4912
+kb_sentence: Min In-Scope = 0.3453 | Max Out-of-Scope = 0.4771 | Threshold = 0.4871
+======================================================================

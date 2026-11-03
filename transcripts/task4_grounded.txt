@@ -1,0 +1,48 @@
+﻿======================================================================
+TASK 4: GROUNDED GENERATION DEMO (MOCK_LLM)
+Collection: kb_sentence | Calibrated Threshold: 0.3
+======================================================================
+
+[Query 1]: "How long do I have to return a lipstick?"
+  - Grounded:       True
+  - Top Similarity: 0.5182
+  - Sources:        ['return_window']
+  - Answer:         According to Nykaa policy: Beauty, makeup, cosmetics, skincare, and personal care items carry a strict 5-day return window and must remain unopened with their original seal intact.
+
+[Query 2]: "Can I return a mascara I opened?"
+  - Grounded:       True
+  - Top Similarity: 0.4619
+  - Sources:        ['return_window']
+  - Answer:         According to Nykaa policy: Beauty, makeup, cosmetics, skincare, and personal care items carry a strict 5-day return window and must remain unopened with their original seal intact.
+
+[Query 3]: "My shoes don't fit, can I swap them?"
+  - Grounded:       True
+  - Top Similarity: 0.3453
+  - Sources:        ['size_exchange']
+  - Answer:         According to Nykaa policy: Items sent for size exchange must be unworn, unwashed, and retained with their original tags, footwear boxes, and packaging.
+
+[Query 4]: "When will my COD refund arrive?"
+  - Grounded:       True
+  - Top Similarity: 0.7956
+  - Sources:        ['cod_refund', 'escalation_matrix']
+  - Answer:         According to Nykaa policy: Once our fulfillment warehouse inspects and approves the returned item, COD refunds are credited within 5 to 7 business days.
+
+[Query 5]: "What happens if my payment fails?"
+  - Grounded:       True
+  - Top Similarity: 0.4583
+  - Sources:        ['payment_failure', 'order_cancellation']
+  - Answer:         According to Nykaa policy: If your funds are not credited back within 3 business days, provide the 12-digit UPI reference number or bank UTR to customer support.
+
+[Query 6]: "How do I bake a chocolate cake?"
+  - Grounded:       False
+  - Top Similarity: 0.0779
+  - Sources:        []
+  - Answer:         I don't know based on the Nykaa knowledge base.
+
+[Query 7]: "What is Nykaa's current share price on the stock exchange?"
+  - Grounded:       False
+  - Top Similarity: 0.4771
+  - Sources:        []
+  - Answer:         I don't know based on the Nykaa knowledge base.
+
+======================================================================

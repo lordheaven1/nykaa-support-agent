@@ -1,0 +1,129 @@
+﻿===========================================================================
+TASK 5: CHUNKING STRATEGY EVALUATION (PRECISION@3 & RECALL@3)
+===========================================================================
+
+===========================================================================
+EVALUATION: Collection 'kb_fixed' (k=3)
+===========================================================================
+
+[Q1]: "How long do I have to return a lipstick?"
+  - Target Doc(s):        ['return_window']
+  - Top-3 Retrieved:      [return_window (Chunk 0), return_window (Chunk 1), damaged_item (Chunk 2)]
+  - Unique Retrieved:     ['return_window', 'damaged_item']
+  - Relevant Hits:        ['return_window']
+  - Precision@3:          1/2 = 0.5000
+  - Recall@3:             1/1 = 1.0000
+  - Top-1 Similarity:     0.5188
+
+[Q2]: "Can I return a mascara I opened?"
+  - Target Doc(s):        ['return_window']
+  - Top-3 Retrieved:      [return_window (Chunk 0), return_window (Chunk 1), return_window (Chunk 2)]
+  - Unique Retrieved:     ['return_window']
+  - Relevant Hits:        ['return_window']
+  - Precision@3:          1/1 = 1.0000
+  - Recall@3:             1/1 = 1.0000
+  - Top-1 Similarity:     0.4123
+
+[Q3]: "My shoes don't fit, can I swap them?"
+  - Target Doc(s):        ['size_exchange']
+  - Top-3 Retrieved:      [size_exchange (Chunk 0), size_exchange (Chunk 2), return_window (Chunk 0)]
+  - Unique Retrieved:     ['size_exchange', 'return_window']
+  - Relevant Hits:        ['size_exchange']
+  - Precision@3:          1/2 = 0.5000
+  - Recall@3:             1/1 = 1.0000
+  - Top-1 Similarity:     0.3506
+
+[Q4]: "When will my COD refund arrive?"
+  - Target Doc(s):        ['cod_refund']
+  - Top-3 Retrieved:      [cod_refund (Chunk 2), cod_refund (Chunk 0), cod_refund (Chunk 1)]
+  - Unique Retrieved:     ['cod_refund']
+  - Relevant Hits:        ['cod_refund']
+  - Precision@3:          1/1 = 1.0000
+  - Recall@3:             1/1 = 1.0000
+  - Top-1 Similarity:     0.6773
+
+[Q5]: "What happens if my payment fails?"
+  - Target Doc(s):        ['payment_failure']
+  - Top-3 Retrieved:      [payment_failure (Chunk 0), payment_failure (Chunk 1), order_cancellation (Chunk 2)]
+  - Unique Retrieved:     ['payment_failure', 'order_cancellation']
+  - Relevant Hits:        ['payment_failure']
+  - Precision@3:          1/2 = 0.5000
+  - Recall@3:             1/1 = 1.0000
+  - Top-1 Similarity:     0.4337
+---------------------------------------------------------------------------
+SUMMARY FOR 'kb_fixed':
+  Mean Precision@3:       0.7000
+  Mean Recall@3:          1.0000
+  Mean Top-1 Similarity:  0.4785
+===========================================================================
+
+===========================================================================
+EVALUATION: Collection 'kb_sentence' (k=3)
+===========================================================================
+
+[Q1]: "How long do I have to return a lipstick?"
+  - Target Doc(s):        ['return_window']
+  - Top-3 Retrieved:      [return_window (Chunk 1), return_window (Chunk 2), return_window (Chunk 0)]
+  - Unique Retrieved:     ['return_window']
+  - Relevant Hits:        ['return_window']
+  - Precision@3:          1/1 = 1.0000
+  - Recall@3:             1/1 = 1.0000
+  - Top-1 Similarity:     0.5182
+
+[Q2]: "Can I return a mascara I opened?"
+  - Target Doc(s):        ['return_window']
+  - Top-3 Retrieved:      [return_window (Chunk 1), return_window (Chunk 3), return_window (Chunk 2)]
+  - Unique Retrieved:     ['return_window']
+  - Relevant Hits:        ['return_window']
+  - Precision@3:          1/1 = 1.0000
+  - Recall@3:             1/1 = 1.0000
+  - Top-1 Similarity:     0.4619
+
+[Q3]: "My shoes don't fit, can I swap them?"
+  - Target Doc(s):        ['size_exchange']
+  - Top-3 Retrieved:      [size_exchange (Chunk 3), size_exchange (Chunk 0), return_window (Chunk 0)]
+  - Unique Retrieved:     ['size_exchange', 'return_window']
+  - Relevant Hits:        ['size_exchange']
+  - Precision@3:          1/2 = 0.5000
+  - Recall@3:             1/1 = 1.0000
+  - Top-1 Similarity:     0.3453
+
+[Q4]: "When will my COD refund arrive?"
+  - Target Doc(s):        ['cod_refund']
+  - Top-3 Retrieved:      [cod_refund (Chunk 2), cod_refund (Chunk 0), escalation_matrix (Chunk 2)]
+  - Unique Retrieved:     ['cod_refund', 'escalation_matrix']
+  - Relevant Hits:        ['cod_refund']
+  - Precision@3:          1/2 = 0.5000
+  - Recall@3:             1/1 = 1.0000
+  - Top-1 Similarity:     0.7956
+
+[Q5]: "What happens if my payment fails?"
+  - Target Doc(s):        ['payment_failure']
+  - Top-3 Retrieved:      [payment_failure (Chunk 2), payment_failure (Chunk 0), order_cancellation (Chunk 3)]
+  - Unique Retrieved:     ['payment_failure', 'order_cancellation']
+  - Relevant Hits:        ['payment_failure']
+  - Precision@3:          1/2 = 0.5000
+  - Recall@3:             1/1 = 1.0000
+  - Top-1 Similarity:     0.4583
+---------------------------------------------------------------------------
+SUMMARY FOR 'kb_sentence':
+  Mean Precision@3:       0.7000
+  Mean Recall@3:          1.0000
+  Mean Top-1 Similarity:  0.5158
+===========================================================================
+
+===========================================================================
+COMPARATIVE EVALUATION SUMMARY
+===========================================================================
+Strategy           | Mean P@3     | Mean R@3     | Mean Top-1 Sim
+---------------------------------------------------------------------------
+kb_fixed           | 0.7000       | 1.0000       | 0.4785        
+kb_sentence        | 0.7000       | 1.0000       | 0.5158        
+===========================================================================
+
+CHUNKING RECOMMENDATION:
+Both strategies tied on document-level Mean Precision@3 (0.7000) and Mean Recall@3 (1.0000).
+We break the tie using the secondary signal of Mean Top-1 Similarity (0.5158 for kb_sentence
+vs. 0.4785 for kb_fixed) and select kb_sentence for deployment, as standalone policy sentences
+avoid mid-clause cuts and yield stronger rank-1 confidence (e.g., COD refund 0.7956 vs. 0.6773).
+===========================================================================

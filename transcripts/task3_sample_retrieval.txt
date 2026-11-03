@@ -1,0 +1,21 @@
+﻿=================================================================
+SAMPLE RETRIEVAL VERIFICATION
+Query: "How long do I have to return a lipstick?"
+=================================================================
+
+--- Collection: kb_fixed (Fixed-Size Chunks) (Top 3) ---
+Rank 1 [Sim: 0.5188 | Dist: 0.4812] Doc: return_window (Chunk 0)
+  Text: "Nykaa allows return requests within 15 days of delivery for Apparel and Footwear products. Beauty, makeup, cosmetics, skincare, and personal care items carry a strict 5-day return window and must rema"
+Rank 2 [Sim: 0.4551 | Dist: 0.5449] Doc: return_window (Chunk 1)
+  Text: "strict 5-day return window and must remain unopened with their original seal intact. Electronics and styling appliances must be returned within 7 days in their original packaging with all included acc"
+Rank 3 [Sim: 0.4096 | Dist: 0.5904] Doc: damaged_item (Chunk 2)
+  Text: "otographic proof and responds with an approval decision within 24 hours. Upon validation, Nykaa initiates a free replacement or processes a complete refund including any applicable shipping charges."
+
+--- Collection: kb_sentence (Sentence-Based Chunks) (Top 3) ---
+Rank 1 [Sim: 0.5182 | Dist: 0.4818] Doc: return_window (Chunk 1)
+  Text: "Beauty, makeup, cosmetics, skincare, and personal care items carry a strict 5-day return window and must remain unopened with their original seal intact."
+Rank 2 [Sim: 0.4635 | Dist: 0.5365] Doc: return_window (Chunk 2)
+  Text: "Electronics and styling appliances must be returned within 7 days in their original packaging with all included accessories."
+Rank 3 [Sim: 0.4472 | Dist: 0.5528] Doc: return_window (Chunk 0)
+  Text: "Nykaa allows return requests within 15 days of delivery for Apparel and Footwear products."
+=================================================================

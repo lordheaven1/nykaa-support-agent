@@ -1,0 +1,34 @@
+﻿=================================================================
+KNOWLEDGE BASE INDEXING (TASK 3)
+=================================================================
+Loaded 12 documents from kb/:
+  - cod_refund.txt (456 characters)
+  - damaged_item.txt (518 characters)
+  - delivery_sla.txt (408 characters)
+  - escalation_matrix.txt (559 characters)
+  - international_shipping.txt (518 characters)
+  - loyalty_points.txt (479 characters)
+  - order_cancellation.txt (477 characters)
+  - payment_failure.txt (533 characters)
+  - return_window.txt (479 characters)
+  - reverse_pickup.txt (523 characters)
+  - size_exchange.txt (481 characters)
+  - warranty.txt (526 characters)
+
+Loading SentenceTransformer('all-MiniLM-L6-v2')...
+Indexing collection 'kb_fixed'...
+Indexing collection 'kb_sentence'...
+
+=================================================================
+COLLECTION INDEXING SUMMARY
+=================================================================
+Collection 'kb_fixed':
+  - Total Chunks: 40
+  - Chunk Size / Overlap: 200 / 40
+  - Average Chunk Length: 176.8 characters
+
+Collection 'kb_sentence':
+  - Total Chunks: 48
+  - Strategy: Standalone sentence split
+  - Average Chunk Length: 123.4 characters
+=================================================================

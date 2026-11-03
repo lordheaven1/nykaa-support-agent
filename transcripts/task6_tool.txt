@@ -1,0 +1,50 @@
+﻿======================================================================
+TASK 6: ORDER STATUS & ESCALATION SCORING DEMO
+======================================================================
+Dataset Distribution (60 orders):
+  P50: 0.0000 | P75: 0.3000 | P80: 0.3733 | P90: 0.6960
+Empirical Escalation Threshold: 0.3733 (80th percentile)
+Orders exceeding threshold: 13 of 60
+======================================================================
+
+[Test 1]: Query ID = "ORD-0008"
+  - Order ID:  ORD-0008
+  - Status:    Returned
+  - Value:     Rs 4660
+  - Delayed:   False (17 days old)
+  - Score:     0.0000
+  - Escalate:  False
+  - Reason:    Normal priority: Order is resolved (Returned). Escalation score is 0.0000.
+
+[Test 2]: Query ID = "ORD-0010"
+  - Order ID:  ORD-0010
+  - Status:    Delivered
+  - Value:     Rs 7420
+  - Delayed:   True (18 days old)
+  - Score:     0.0000
+  - Escalate:  False
+  - Reason:    Normal priority: Order is resolved (Delivered). Escalation score is 0.0000.
+
+[Test 3]: Query ID = "ORD-0001"
+  - Order ID:  ORD-0001
+  - Status:    Placed
+  - Value:     Rs 3150
+  - Delayed:   True (7 days old)
+  - Score:     0.6933
+  - Escalate:  True
+  - Reason:    High priority: Open order 'Placed' with delay=True at 7 days old yielded escalation score 0.6933 (>= 0.3733 threshold).
+
+[Test 4]: Query ID = "  ord-0008  "
+  - Order ID:  ORD-0008
+  - Status:    Returned
+  - Value:     Rs 4660
+  - Delayed:   False (17 days old)
+  - Score:     0.0000
+  - Escalate:  False
+  - Reason:    Normal priority: Order is resolved (Returned). Escalation score is 0.0000.
+
+[Test 5]: Query ID = "ORD-9999"
+  - Error:     Order not found
+  - Message:   Order ID 'ORD-9999' does not exist in Nykaa records.
+
+======================================================================
