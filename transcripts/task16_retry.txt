@@ -1,0 +1,41 @@
+﻿================================================================================
+TASK 16a: EXPONENTIAL BACKOFF RETRY VERIFICATION
+================================================================================
+Policy Configuration:
+  - initial_interval: 0.2s
+  - backoff_factor:   2.0
+  - max_interval:     2.0s
+  - max_attempts:     4
+  - jitter:           True
+  - retry_on:         TransientError
+--------------------------------------------------------------------------------
+
+--- Scenario 1: Node Fails 2 Times -> Recovers on Attempt 3 ---
+[13:03:03] [EXEC] prepare
+[13:03:03] [EXEC] flaky_lookup
+[13:03:03] [ATTEMPT 1] flaky_lookup FAILING (TransientError injected, elapsed=0.000s)
+[13:03:04] [EXEC] flaky_lookup
+[13:03:04] [ATTEMPT 2] flaky_lookup FAILING (TransientError injected, elapsed=1.125s)
+[13:03:05] [EXEC] flaky_lookup
+[13:03:05] [ATTEMPT 3] flaky_lookup SUCCEEDED (elapsed=2.512s)
+[13:03:05] [EXEC] finalize
+
+Result: SUCCESS after 3 attempts (Total duration: 2.518s)
+Resolved Order Status: Placed, Escalation: 0.6933
+Steps Completed: ['prepare', 'flaky_lookup', 'finalize']
+
+--- Scenario 2: Retries Exhausted (Node Fails 5 Times, Max Attempts = 4) ---
+[13:03:05] [EXEC] prepare
+[13:03:05] [EXEC] flaky_lookup
+[13:03:05] [ATTEMPT 1] flaky_lookup FAILING (TransientError injected, elapsed=0.000s)
+[13:03:06] [EXEC] flaky_lookup
+[13:03:06] [ATTEMPT 2] flaky_lookup FAILING (TransientError injected, elapsed=0.594s)
+[13:03:07] [EXEC] flaky_lookup
+[13:03:07] [ATTEMPT 3] flaky_lookup FAILING (TransientError injected, elapsed=1.900s)
+[13:03:08] [EXEC] flaky_lookup
+[13:03:08] [ATTEMPT 4] flaky_lookup FAILING (TransientError injected, elapsed=3.326s)
+
+Caught Expected Exhaustion Error: TransientError: Simulated upstream outage on attempt 4
+Total Attempts Recorded: 4 of max 4
+Total Duration Until Failure: 3.329s
+Retries exhausted cleanly without unhandled crash.

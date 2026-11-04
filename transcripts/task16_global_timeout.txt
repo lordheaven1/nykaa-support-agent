@@ -1,0 +1,15 @@
+﻿================================================================================
+TASK 16c: GLOBAL PIPELINE TIMEOUT VERIFICATION
+================================================================================
+Configuration:
+  - 4 Sequential nodes, each taking ~0.8s (Total work = ~3.2s)
+  - Each node timeout = 1.0s (No single node breaches its local limit)
+  - Global pipeline timeout = 2.0s via asyncio.wait_for
+--------------------------------------------------------------------------------
+[13:04:50] [EXEC] chain_node_1 (takes ~0.8s)
+[13:04:51] [EXEC] chain_node_2 (takes ~0.8s)
+[13:04:51] [EXEC] chain_node_3 (takes ~0.8s)
+
+Caught Expected Global asyncio.TimeoutError after 2.011s
+Global pipeline aborted at ~2.0s: later nodes never started.
+Global timeout cancellation verified successfully.

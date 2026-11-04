@@ -1,0 +1,14 @@
+﻿[11/04/26 12:40:52] INFO     Starting MCP server 'nykaa-order-status' with transport 'http' on http://127.0.0.1:8000/mcp
+INFO:     Started server process [41120]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:6383 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6383 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6383 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6383 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6383 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [41120]

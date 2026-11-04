@@ -1,0 +1,12 @@
+﻿================================================================================
+TASK 16b: PER-NODE TIMEOUT VERIFICATION
+================================================================================
+Configuration: Node configured with @with_timeout(1.0s), executing 5.0s sleep
+--------------------------------------------------------------------------------
+[13:04:38] [EXEC] prepare
+[13:04:38] [EXEC] slow_step: sleeping for 5.0s...
+[13:04:39] [TIMEOUT] Node 'node_slow_step' timed out after 1.000s (limit: 1.0s)
+
+Caught Expected NodeTimeoutError: Node 'node_slow_step' exceeded 1.0s timeout limit
+Elapsed Time: 1.005s (Verified ~1.0s cancellation, NOT hanging for 5.0s)
+Per-node timeout cancelled coroutine cleanly.

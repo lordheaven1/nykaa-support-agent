@@ -1,0 +1,48 @@
+﻿================================================================================
+CONNECTING TO MCP SERVER AT: http://127.0.0.1:8000/mcp
+================================================================================
+
+--- [1] LIST TOOLS ---
+Tool Name:        check_order_status
+Tool Description: Look up real-time status and escalation priority for a Nykaa customer order.
+
+--- [2] CALL TOOL: Delayed Open Order (ORD-0008) ---
+MCP Raw Result Type: CallToolResult
+MCP Result Representation: CallToolResult(content=[TextContent(type='text', text='{"record_id":"ORD-0008","status":"Returned","order_value_inr":4660,"delayed_shipment":false,"days_since_created":17,"escalation_score":0.0,"escalate":false,"reason":"Normal priority: Order is resolved (Returned). Escalation score is 0.0000."}', annotations=None, meta=None)], structured_content={'record_id': 'ORD-0008', 'status': 'Returned', 'order_value_inr': 4660, 'delayed_shipment': False, 'days_since_created': 17, 'escalation_score': 0.0, 'escalate': False, 'reason': 'Normal priority: Order is resolved (Returned). Escalation score is 0.0000.'}, meta={'io.modelcontextprotocol/serverInfo': {'name': 'nykaa-order-status', 'version': '4.1.5'}}, data={'record_id': 'ORD-0008', 'status': 'Returned', 'order_value_inr': 4660, 'delayed_shipment': False, 'days_since_created': 17, 'escalation_score': 0.0, 'escalate': False, 'reason': 'Normal priority: Order is resolved (Returned). Escalation score is 0.0000.'}, is_error=False)
+Decoded Data: {
+  "record_id": "ORD-0008",
+  "status": "Returned",
+  "order_value_inr": 4660,
+  "delayed_shipment": false,
+  "days_since_created": 17,
+  "escalation_score": 0.0,
+  "escalate": false,
+  "reason": "Normal priority: Order is resolved (Returned). Escalation score is 0.0000."
+}
+
+--- [3] CALL TOOL: Delivered Order (ORD-0001) ---
+MCP Raw Result Type: CallToolResult
+MCP Result Representation: CallToolResult(content=[TextContent(type='text', text='{"record_id":"ORD-0001","status":"Placed","order_value_inr":3150,"delayed_shipment":true,"days_since_created":7,"escalation_score":0.6933,"escalate":true,"reason":"High priority: Open order \'Placed\' with delay=True at 7 days old yielded escalation score 0.6933 (>= 0.3733 threshold)."}', annotations=None, meta=None)], structured_content={'record_id': 'ORD-0001', 'status': 'Placed', 'order_value_inr': 3150, 'delayed_shipment': True, 'days_since_created': 7, 'escalation_score': 0.6933, 'escalate': True, 'reason': "High priority: Open order 'Placed' with delay=True at 7 days old yielded escalation score 0.6933 (>= 0.3733 threshold)."}, meta={'io.modelcontextprotocol/serverInfo': {'name': 'nykaa-order-status', 'version': '4.1.5'}}, data={'record_id': 'ORD-0001', 'status': 'Placed', 'order_value_inr': 3150, 'delayed_shipment': True, 'days_since_created': 7, 'escalation_score': 0.6933, 'escalate': True, 'reason': "High priority: Open order 'Placed' with delay=True at 7 days old yielded escalation score 0.6933 (>= 0.3733 threshold)."}, is_error=False)
+Decoded Data: {
+  "record_id": "ORD-0001",
+  "status": "Placed",
+  "order_value_inr": 3150,
+  "delayed_shipment": true,
+  "days_since_created": 7,
+  "escalation_score": 0.6933,
+  "escalate": true,
+  "reason": "High priority: Open order 'Placed' with delay=True at 7 days old yielded escalation score 0.6933 (>= 0.3733 threshold)."
+}
+
+--- [4] CALL TOOL: Nonexistent Order (ORD-9999) ---
+MCP Raw Result Type: CallToolResult
+MCP Result Representation: CallToolResult(content=[TextContent(type='text', text='{"error":"Order not found","message":"Order ID \'ORD-9999\' does not exist in Nykaa records.","record_id":"ORD-9999"}', annotations=None, meta=None)], structured_content={'error': 'Order not found', 'message': "Order ID 'ORD-9999' does not exist in Nykaa records.", 'record_id': 'ORD-9999'}, meta={'io.modelcontextprotocol/serverInfo': {'name': 'nykaa-order-status', 'version': '4.1.5'}}, data={'error': 'Order not found', 'message': "Order ID 'ORD-9999' does not exist in Nykaa records.", 'record_id': 'ORD-9999'}, is_error=False)
+Decoded Data: {
+  "error": "Order not found",
+  "message": "Order ID 'ORD-9999' does not exist in Nykaa records.",
+  "record_id": "ORD-9999"
+}
+
+================================================================================
+ALL MCP TOOL CALLS COMPLETED SUCCESSFULLY
+================================================================================

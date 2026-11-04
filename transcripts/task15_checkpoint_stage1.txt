@@ -1,0 +1,19 @@
+﻿================================================================================
+TASK 15 - STAGE 1: EXECUTION UNTIL INTERRUPT
+Target Thread ID: ckpt-demo-01
+================================================================================
+Cleaned stale checkpoints.sqlite
+
+--- Starting Graph Invocation (Stage 1) ---
+[EXEC] load_memory
+[EXEC] input_guard
+[EXEC] classify_intent
+
+--- Inspecting Interrupted State from Checkpointer ---
+Next Node in Execution Queue: ('rag_tool',)
+Interrupted Route:             rag
+Masked Query in Checkpoint:    How long do I have to return an unopened face cream?
+Last Order ID in Checkpoint:   None
+Trace ID in Checkpoint:        tr-ckpt-demo-01
+
+Stage 1 successfully interrupted before 'rag_tool'. Process exiting cleanly.

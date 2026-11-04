@@ -176,5 +176,270 @@
       }
     ],
     "last_order_id": null
+  },
+  "conv-961cd934": {
+    "messages": [
+      {
+        "user": "How long do I have to return a lipstick?",
+        "agent": "According to Nykaa policy: Beauty, makeup, cosmetics, skincare, and personal care items carry a strict 5-day return window and must remain unopened with their original seal intact.",
+        "route": "rag"
+      }
+    ],
+    "last_order_id": null
+  },
+  "conv-ecace49e": {
+    "messages": [
+      {
+        "user": "What is the status of ORD-0012?",
+        "agent": "Order ORD-0012 is currently 'Returned'. Order value: Rs 1760. Normal priority: Order is resolved (Returned). Escalation score is 0.0000.",
+        "route": "order_status"
+      }
+    ],
+    "last_order_id": "ORD-0012"
+  },
+  "conv-9c3e48d2": {
+    "messages": [
+      {
+        "user": "My number is [PHONE_MASKED] and card ending [CARD_LAST4_MASKED], where is ORD-0012?",
+        "agent": "Order ORD-0012 is currently 'Returned'. Order value: Rs 1760. Normal priority: Order is resolved (Returned). Escalation score is 0.0000.",
+        "route": "order_status"
+      }
+    ],
+    "last_order_id": "ORD-0012"
+  },
+  "eval-triad-1": {
+    "messages": [
+      {
+        "user": "How many days do I have to return an unopened face cream?",
+        "agent": "According to Nykaa policy: Beauty, makeup, cosmetics, skincare, and personal care items carry a strict 5-day return window and must remain unopened with their original seal intact.",
+        "route": "rag"
+      },
+      {
+        "user": "How many days do I have to return an unopened face cream?",
+        "agent": "According to Nykaa policy: Beauty, makeup, cosmetics, skincare, and personal care items carry a strict 5-day return window and must remain unopened with their original seal intact.",
+        "route": "rag"
+      }
+    ],
+    "last_order_id": null
+  },
+  "eval-triad-2": {
+    "messages": [
+      {
+        "user": "I paid cash on delivery for my parcel, how will the refund reach me?",
+        "agent": "According to Nykaa policy: For orders placed using Cash on Delivery (COD), refunds are processed directly into the customer registered bank account via NEFT or IMPS.",
+        "route": "rag"
+      },
+      {
+        "user": "I paid cash on delivery for my parcel, how will the refund reach me?",
+        "agent": "According to Nykaa policy: For orders placed using Cash on Delivery (COD), refunds are processed directly into the customer registered bank account via NEFT or IMPS.",
+        "route": "rag"
+      }
+    ],
+    "last_order_id": null
+  },
+  "eval-triad-3": {
+    "messages": [
+      {
+        "user": "When can I expect my order to arrive in Mumbai?",
+        "agent": "According to Nykaa policy: Orders shipped to non-metro locations and tier-2 or tier-3 towns take 4 to 6 business days.",
+        "route": "rag"
+      },
+      {
+        "user": "When can I expect my order to arrive in Mumbai?",
+        "agent": "According to Nykaa policy: Orders shipped to non-metro locations and tier-2 or tier-3 towns take 4 to 6 business days.",
+        "route": "rag"
+      }
+    ],
+    "last_order_id": null
+  },
+  "eval-triad-4": {
+    "messages": [
+      {
+        "user": "Does someone come to my house to collect returned packages?",
+        "agent": "According to Nykaa policy: Once a return request is authorized, our courier partner attempts pickup from the delivery address within 24 to 48 hours.",
+        "route": "rag"
+      },
+      {
+        "user": "Does someone come to my house to collect returned packages?",
+        "agent": "According to Nykaa policy: Once a return request is authorized, our courier partner attempts pickup from the delivery address within 24 to 48 hours.",
+        "route": "rag"
+      }
+    ],
+    "last_order_id": null
+  },
+  "eval-triad-5": {
+    "messages": [
+      {
+        "user": "My hair straightener stopped working after two weeks, who handles repairs?",
+        "agent": "According to Nykaa policy: Electronics and styling appliances must be returned within 7 days in their original packaging with all included accessories.",
+        "route": "rag"
+      },
+      {
+        "user": "My hair straightener stopped working after two weeks, who handles repairs?",
+        "agent": "According to Nykaa policy: Electronics and styling appliances must be returned within 7 days in their original packaging with all included accessories.",
+        "route": "rag"
+      }
+    ],
+    "last_order_id": null
+  },
+  "eval-triad-6": {
+    "messages": [
+      {
+        "user": "Can I cancel my items after the status shows dispatched?",
+        "agent": "According to Nykaa policy: Once an order has been assigned a courier tracking number and moved to Shipped status, direct one-click cancellation is disabled.",
+        "route": "rag"
+      },
+      {
+        "user": "Can I cancel my items after the status shows dispatched?",
+        "agent": "According to Nykaa policy: Once an order has been assigned a courier tracking number and moved to Shipped status, direct one-click cancellation is disabled.",
+        "route": "rag"
+      }
+    ],
+    "last_order_id": null
+  },
+  "eval-triad-7": {
+    "messages": [
+      {
+        "user": "What is the rupee value when I redeem 200 reward points?",
+        "agent": "According to Nykaa policy: Every accumulated point holds a redemption value of 1 rupee and can be applied at the checkout screen against future orders.",
+        "route": "rag"
+      },
+      {
+        "user": "What is the rupee value when I redeem 200 reward points?",
+        "agent": "According to Nykaa policy: Every accumulated point holds a redemption value of 1 rupee and can be applied at the checkout screen against future orders.",
+        "route": "rag"
+      }
+    ],
+    "last_order_id": null
+  },
+  "eval-triad-8": {
+    "messages": [
+      {
+        "user": "My bank account was debited but the order confirmation didn't go through.",
+        "agent": "According to Nykaa policy: If money is debited from your bank account or UPI application but the Nykaa order screen indicates payment failure, the transaction is marked pending.",
+        "route": "rag"
+      },
+      {
+        "user": "My bank account was debited but the order confirmation didn't go through.",
+        "agent": "According to Nykaa policy: If money is debited from your bank account or UPI application but the Nykaa order screen indicates payment failure, the transaction is marked pending.",
+        "route": "rag"
+      }
+    ],
+    "last_order_id": null
+  },
+  "eval-triad-9": {
+    "messages": [
+      {
+        "user": "The running shoes are too small, can I swap them for a UK 9?",
+        "agent": "According to Nykaa policy: Size exchange is permitted exclusively for Footwear and Apparel merchandise subject to operational stock availability.",
+        "route": "rag"
+      },
+      {
+        "user": "The running shoes are too small, can I swap them for a UK 9?",
+        "agent": "According to Nykaa policy: Size exchange is permitted exclusively for Footwear and Apparel merchandise subject to operational stock availability.",
+        "route": "rag"
+      }
+    ],
+    "last_order_id": null
+  },
+  "eval-triad-10": {
+    "messages": [
+      {
+        "user": "My perfume arrived completely shattered inside the shipping box.",
+        "agent": "According to Nykaa policy: Customers must upload clear photographs of the outer shipping box, the damaged item, and the visible courier shipping label through the support portal.",
+        "route": "rag"
+      },
+      {
+        "user": "My perfume arrived completely shattered inside the shipping box.",
+        "agent": "According to Nykaa policy: Customers must upload clear photographs of the outer shipping box, the damaged item, and the visible courier shipping label through the support portal.",
+        "route": "rag"
+      }
+    ],
+    "last_order_id": null
+  },
+  "eval-triad-11": {
+    "messages": [
+      {
+        "user": "Do you ship cosmetics to addresses in Dubai or the UK?",
+        "agent": "According to Nykaa policy: Nykaa ships select Beauty and Wellness catalog items internationally to over 30 countries across North America, Europe, and Asia.",
+        "route": "rag"
+      },
+      {
+        "user": "Do you ship cosmetics to addresses in Dubai or the UK?",
+        "agent": "According to Nykaa policy: Nykaa ships select Beauty and Wellness catalog items internationally to over 30 countries across North America, Europe, and Asia.",
+        "route": "rag"
+      }
+    ],
+    "last_order_id": null
+  },
+  "eval-triad-12": {
+    "messages": [
+      {
+        "user": "How do I escalate an unresolved complaint if support hasn't replied for 48 hours?",
+        "agent": "According to Nykaa policy: Unresolved matters may be submitted to the Grievance Officer, who provides a formal written resolution within 15 business days in compliance with statutory e-commerce guidelines.",
+        "route": "rag"
+      },
+      {
+        "user": "How do I escalate an unresolved complaint if support hasn't replied for 48 hours?",
+        "agent": "According to Nykaa policy: Unresolved matters may be submitted to the Grievance Officer, who provides a formal written resolution within 15 business days in compliance with statutory e-commerce guidelines.",
+        "route": "rag"
+      }
+    ],
+    "last_order_id": null
+  },
+  "eval-triad-13": {
+    "messages": [
+      {
+        "user": "What is Nykaa's current share price on the stock exchange?",
+        "agent": "I don't know based on the Nykaa knowledge base.",
+        "route": "refused"
+      },
+      {
+        "user": "What is Nykaa's current share price on the stock exchange?",
+        "agent": "I don't know based on the Nykaa knowledge base.",
+        "route": "refused"
+      }
+    ],
+    "last_order_id": null
+  },
+  "eval-triad-14": {
+    "messages": [
+      {
+        "user": "How do I bake a chocolate cake at home?",
+        "agent": "I don't know based on the Nykaa knowledge base.",
+        "route": "rag"
+      },
+      {
+        "user": "How do I bake a chocolate cake at home?",
+        "agent": "I don't know based on the Nykaa knowledge base.",
+        "route": "rag"
+      }
+    ],
+    "last_order_id": null
+  },
+  "eval-triad-15": {
+    "messages": [
+      {
+        "user": "Can I return it?",
+        "agent": "According to Nykaa policy: Electronics and styling appliances must be returned within 7 days in their original packaging with all included accessories.",
+        "route": "rag"
+      },
+      {
+        "user": "Can I return it?",
+        "agent": "According to Nykaa policy: Electronics and styling appliances must be returned within 7 days in their original packaging with all included accessories.",
+        "route": "rag"
+      }
+    ],
+    "last_order_id": null
+  },
+  "conv-ckpt-demo-01": {
+    "messages": [
+      {
+        "user": "How long do I have to return an unopened face cream?",
+        "agent": "According to Nykaa policy: Beauty, makeup, cosmetics, skincare, and personal care items carry a strict 5-day return window and must remain unopened with their original seal intact.",
+        "route": "rag"
+      }
+    ],
+    "last_order_id": null
   }
 }

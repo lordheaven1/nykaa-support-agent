@@ -1,0 +1,84 @@
+﻿===========================================================================
+TASK 11: FASTAPI ENDPOINT DEMONSTRATION
+===========================================================================
+
+[Call 1]: GET /health
+  Status: 200
+  Body:   {'status': 'ok'}
+
+[Call 2]: POST /ask (Policy Query)
+  Status: 200
+  Body:   {
+  "trace_id": "tr-81cc6289dc73",
+  "route": "rag",
+  "answer": "According to Nykaa policy: Beauty, makeup, cosmetics, skincare, and personal care items carry a strict 5-day return window and must remain unopened with their original seal intact.",
+  "sources": [
+    "return_window"
+  ],
+  "grounded": true,
+  "guardrails_triggered": [],
+  "data": null
+}
+
+[Call 3]: POST /ask (Order Status Query)
+  Status: 200
+  Body:   {
+  "trace_id": "tr-c2bed8ece79d",
+  "route": "order_status",
+  "answer": "Order ORD-0012 is currently 'Returned'. Order value: Rs 1760. Normal priority: Order is resolved (Returned). Escalation score is 0.0000.",
+  "sources": [],
+  "grounded": false,
+  "guardrails_triggered": [],
+  "data": {
+    "record_id": "ORD-0012",
+    "status": "Returned",
+    "order_value_inr": 1760,
+    "delayed_shipment": false,
+    "days_since_created": 8,
+    "escalation_score": 0.0,
+    "escalate": false,
+    "reason": "Normal priority: Order is resolved (Returned). Escalation score is 0.0000."
+  }
+}
+
+[Call 4]: POST /ask (PII Redaction Test)
+  Status: 200
+  Body:   {
+  "trace_id": "tr-0255a1a394bf",
+  "route": "order_status",
+  "answer": "Order ORD-0012 is currently 'Returned'. Order value: Rs 1760. Normal priority: Order is resolved (Returned). Escalation score is 0.0000.",
+  "sources": [],
+  "grounded": false,
+  "guardrails_triggered": [
+    "PII_CARD_LAST4",
+    "PII_PHONE"
+  ],
+  "data": {
+    "record_id": "ORD-0012",
+    "status": "Returned",
+    "order_value_inr": 1760,
+    "delayed_shipment": false,
+    "days_since_created": 8,
+    "escalation_score": 0.0,
+    "escalate": false,
+    "reason": "Normal priority: Order is resolved (Returned). Escalation score is 0.0000."
+  }
+}
+
+[Call 5]: POST /ask (Empty Query -> Expected 422)
+  Status: 422
+  Body:   {'detail': [{'type': 'string_too_short', 'loc': ['body', 'query'], 'msg': 'String should have at least 1 character', 'input': '', 'ctx': {'min_length': 1}}]}
+
+[Call 6]: POST /add-document (New Document Ingestion)
+  Status: 200
+  Body:   {'doc_id': 'test_gift_wrap', 'chunks_added': 2, 'collection': 'kb_sentence'}
+
+[Call 7]: POST /add-document (Duplicate Ingestion -> Expected 409)
+  Status: 409
+  Body:   {'detail': "Document 'test_gift_wrap' already exists in KB collections."}
+
+===========================================================================
+CLEANUP: Restoring ChromaDB to frozen baseline counts (40 fixed, 48 sentence)
+===========================================================================
+Chroma collections restored -> kb_sentence: 48 chunks | kb_fixed: 40 chunks
+Baseline chunk integrity verified: PASS

@@ -1,0 +1,95 @@
+﻿============================================================================================
+TASK 13: RAG TRIAD EVALUATION (15 QUERIES, 3 JUDGE SCORES)
+============================================================================================
+
+[RAG Scope Note]: The RAG triad is defined strictly for knowledge retrieval pathways.
+Order-status tracking queries route to the deterministic order tool and are evaluated separately.
+
+--------------------------------------------------------------------------------------------
+LLM-AS-JUDGE PROMPT TEMPLATES & MOCK SCORING RULES
+--------------------------------------------------------------------------------------------
+[JUDGE PROMPT: CONTEXT RELEVANCE]
+You are an expert evaluator assessing retrieval quality.
+Given the user query and the retrieved context passages, determine how relevant the retrieved context is to addressing the query.
+Score between 0.0 (completely irrelevant) and 1.0 (highly relevant, contains all needed context).
+
+Query: {query}
+Retrieved Context:
+{context}
+
+Provide your score as:
+Score: <float between 0.0 and 1.0>
+Reasoning: <concise explanation>
+
+[JUDGE PROMPT: GROUNDEDNESS / FAITHFULNESS]
+You are an expert evaluator assessing factual consistency and hallucination.
+Given the retrieved context passages and the generated answer, determine whether every factual statement in the answer is strictly supported by the context.
+If the query is out-of-scope and the agent issues an accurate fallback refusal, score 1.0.
+If the query is in-scope and the agent fails to answer (false refusal), score 0.0.
+
+Retrieved Context:
+{context}
+Generated Answer:
+{answer}
+
+Provide your score as:
+Score: <float between 0.0 and 1.0>
+Reasoning: <concise explanation>
+
+[JUDGE PROMPT: ANSWER RELEVANCE]
+You are an expert evaluator assessing response relevance.
+Given the user query and the generated answer, determine how directly and completely the answer addresses the user's intent.
+For out-of-scope queries where refusal is the policy-compliant behavior, a correct refusal scores 1.0.
+For in-scope queries where the agent issues a false refusal, score 0.0 because the user received no answer.
+
+Query: {query}
+Generated Answer:
+{answer}
+
+Provide your score as:
+Score: <float between 0.0 and 1.0>
+Reasoning: <concise explanation>
+
+[DETERMINISTIC MOCK JUDGE SCORING RULES]
+1. Context Relevance: Arithmetic mean of top-3 retrieved chunk cosine similarities from kb_sentence (unfiltered by the 0.30 operational threshold).
+2. Groundedness:
+   - Answered queries: 1.0 if extracted policy sentence appears verbatim in retrieved chunks, else 0.0 (1.00 by construction under extractive MOCK_LLM).
+   - Correct refusal (out-of-scope query refused/fallback): 1.0 by definition (no unsupported claims).
+   - False refusal (in-scope query with expected_doc != None that triggers fallback): 0.0 (failed to provide grounded answer).
+3. Answer Relevance:
+   - Answered queries: Cosine similarity between query embedding and generated answer embedding.
+   - Correct refusal (out-of-scope query refused/fallback): 1.0 by definition.
+   - False refusal (in-scope query that triggers fallback): 0.0 (user received no answer).
+
+--------------------------------------------------------------------------------------------
+
+============================================================================================
+ID  | Topic                  | Route   | C.Rel  | Gnd   | A.Rel  | Top Source / Behavior
+--------------------------------------------------------------------------------------------
+1   | Return Window          | rag     | 0.4590 | 1.00  | 0.5191 | return_window
+2   | COD Refund             | rag     | 0.5262 | 1.00  | 0.5749 | cod_refund
+3   | Delivery SLAs          | rag     | 0.4788 | 1.00  | 0.5288 | delivery_sla
+4   | Reverse Pickup         | rag     | 0.4135 | 1.00  | 0.4149 | reverse_pickup
+5   | Warranty               | rag     | 0.2850 | 1.00  | 0.2913 | return_window
+6   | Order Cancellation     | rag     | 0.5024 | 1.00  | 0.5318 | order_cancellation
+7   | Loyalty Points         | rag     | 0.5362 | 1.00  | 0.5671 | loyalty_points
+8   | Payment Failure        | rag     | 0.4735 | 1.00  | 0.5572 | payment_failure
+9   | Size Exchange          | rag     | 0.2847 | 1.00  | 0.4318 | size_exchange
+10  | Damaged Item           | rag     | 0.4018 | 1.00  | 0.4531 | damaged_item
+11  | International Shipping | rag     | 0.4112 | 1.00  | 0.4515 | international_shipping
+12  | Escalation Matrix      | rag     | 0.5197 | 1.00  | 0.4962 | escalation_matrix
+13  | Corporate Near-Miss    | refused | 0.4177 | 1.00  | 1.0000 | refused (guardrail)
+14  | Pure Off-Topic         | rag     | 0.0881 | 1.00  | 1.0000 | fallback (ungrounded)
+15  | Ambiguous Return       | rag     | 0.3668 | 1.00  | 0.4380 | return_window
+--------------------------------------------------------------------------------------------
+SUM (12 In-Scope Only):         | -       | 5.2920 | 12.00 | 5.8177 |
+AVERAGE (12 In-Scope Only):     | -       | 0.4410 | 1.0000| 0.4848 | (#5 retrieved return_window vs warranty)
+--------------------------------------------------------------------------------------------
+SUM (All 15 Evaluated):         | -       | 6.1646 | 15.00 | 8.2557 |
+AVERAGE (All 15 Evaluated):     | -       | 0.4110 | 1.0000| 0.5504 | (Out-of-scope refusal #13,#14 = 1.0)
+============================================================================================
+
+[Topic Coverage Check]: 12 unique expected docs mapped across 12 in-scope queries.
+Mapped Docs: cod_refund, damaged_item, delivery_sla, escalation_matrix, international_shipping, loyalty_points, order_cancellation, payment_failure, return_window, reverse_pickup, size_exchange, warranty
+12-Topic Complete Coverage: PASS
+

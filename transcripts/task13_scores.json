@@ -1,0 +1,269 @@
+{
+  "sums_in_scope_12": {
+    "context_relevance": 5.292,
+    "groundedness": 12.0,
+    "answer_relevance": 5.8177
+  },
+  "averages_in_scope_12": {
+    "context_relevance": 0.441,
+    "groundedness": 1.0,
+    "answer_relevance": 0.4848
+  },
+  "sums_all_15": {
+    "context_relevance": 6.1646,
+    "groundedness": 15.0,
+    "answer_relevance": 8.2557
+  },
+  "averages_all_15": {
+    "context_relevance": 0.411,
+    "groundedness": 1.0,
+    "answer_relevance": 0.5504
+  },
+  "queries": [
+    {
+      "id": 1,
+      "topic": "Return Window",
+      "query": "How many days do I have to return an unopened face cream?",
+      "expected_doc": "return_window",
+      "route": "rag",
+      "grounded_flag": true,
+      "sources": [
+        "return_window",
+        "size_exchange"
+      ],
+      "context_relevance": 0.459,
+      "groundedness": 1.0,
+      "answer_relevance": 0.5191,
+      "behavior": "return_window",
+      "answer": "According to Nykaa policy: Beauty, makeup, cosmetics, skincare, and personal care items carry a strict 5-day return window and must remain unopened with their original seal intact."
+    },
+    {
+      "id": 2,
+      "topic": "COD Refund",
+      "query": "I paid cash on delivery for my parcel, how will the refund reach me?",
+      "expected_doc": "cod_refund",
+      "route": "rag",
+      "grounded_flag": true,
+      "sources": [
+        "cod_refund",
+        "damaged_item"
+      ],
+      "context_relevance": 0.5262,
+      "groundedness": 1.0,
+      "answer_relevance": 0.5749,
+      "behavior": "cod_refund",
+      "answer": "According to Nykaa policy: For orders placed using Cash on Delivery (COD), refunds are processed directly into the customer registered bank account via NEFT or IMPS."
+    },
+    {
+      "id": 3,
+      "topic": "Delivery SLAs",
+      "query": "When can I expect my order to arrive in Mumbai?",
+      "expected_doc": "delivery_sla",
+      "route": "rag",
+      "grounded_flag": true,
+      "sources": [
+        "delivery_sla",
+        "size_exchange"
+      ],
+      "context_relevance": 0.4788,
+      "groundedness": 1.0,
+      "answer_relevance": 0.5288,
+      "behavior": "delivery_sla",
+      "answer": "According to Nykaa policy: Orders shipped to non-metro locations and tier-2 or tier-3 towns take 4 to 6 business days."
+    },
+    {
+      "id": 4,
+      "topic": "Reverse Pickup",
+      "query": "Does someone come to my house to collect returned packages?",
+      "expected_doc": "reverse_pickup",
+      "route": "rag",
+      "grounded_flag": true,
+      "sources": [
+        "reverse_pickup",
+        "return_window"
+      ],
+      "context_relevance": 0.4135,
+      "groundedness": 1.0,
+      "answer_relevance": 0.4149,
+      "behavior": "reverse_pickup",
+      "answer": "According to Nykaa policy: Once a return request is authorized, our courier partner attempts pickup from the delivery address within 24 to 48 hours."
+    },
+    {
+      "id": 5,
+      "topic": "Warranty",
+      "query": "My hair straightener stopped working after two weeks, who handles repairs?",
+      "expected_doc": "warranty",
+      "route": "rag",
+      "grounded_flag": true,
+      "sources": [
+        "return_window"
+      ],
+      "context_relevance": 0.285,
+      "groundedness": 1.0,
+      "answer_relevance": 0.2913,
+      "behavior": "return_window",
+      "answer": "According to Nykaa policy: Electronics and styling appliances must be returned within 7 days in their original packaging with all included accessories."
+    },
+    {
+      "id": 6,
+      "topic": "Order Cancellation",
+      "query": "Can I cancel my items after the status shows dispatched?",
+      "expected_doc": "order_cancellation",
+      "route": "rag",
+      "grounded_flag": true,
+      "sources": [
+        "order_cancellation"
+      ],
+      "context_relevance": 0.5024,
+      "groundedness": 1.0,
+      "answer_relevance": 0.5318,
+      "behavior": "order_cancellation",
+      "answer": "According to Nykaa policy: Once an order has been assigned a courier tracking number and moved to Shipped status, direct one-click cancellation is disabled."
+    },
+    {
+      "id": 7,
+      "topic": "Loyalty Points",
+      "query": "What is the rupee value when I redeem 200 reward points?",
+      "expected_doc": "loyalty_points",
+      "route": "rag",
+      "grounded_flag": true,
+      "sources": [
+        "loyalty_points"
+      ],
+      "context_relevance": 0.5362,
+      "groundedness": 1.0,
+      "answer_relevance": 0.5671,
+      "behavior": "loyalty_points",
+      "answer": "According to Nykaa policy: Every accumulated point holds a redemption value of 1 rupee and can be applied at the checkout screen against future orders."
+    },
+    {
+      "id": 8,
+      "topic": "Payment Failure",
+      "query": "My bank account was debited but the order confirmation didn't go through.",
+      "expected_doc": "payment_failure",
+      "route": "rag",
+      "grounded_flag": true,
+      "sources": [
+        "payment_failure",
+        "order_cancellation"
+      ],
+      "context_relevance": 0.4735,
+      "groundedness": 1.0,
+      "answer_relevance": 0.5572,
+      "behavior": "payment_failure",
+      "answer": "According to Nykaa policy: If money is debited from your bank account or UPI application but the Nykaa order screen indicates payment failure, the transaction is marked pending."
+    },
+    {
+      "id": 9,
+      "topic": "Size Exchange",
+      "query": "The running shoes are too small, can I swap them for a UK 9?",
+      "expected_doc": "size_exchange",
+      "route": "rag",
+      "grounded_flag": true,
+      "sources": [
+        "size_exchange"
+      ],
+      "context_relevance": 0.2847,
+      "groundedness": 1.0,
+      "answer_relevance": 0.4318,
+      "behavior": "size_exchange",
+      "answer": "According to Nykaa policy: Size exchange is permitted exclusively for Footwear and Apparel merchandise subject to operational stock availability."
+    },
+    {
+      "id": 10,
+      "topic": "Damaged Item",
+      "query": "My perfume arrived completely shattered inside the shipping box.",
+      "expected_doc": "damaged_item",
+      "route": "rag",
+      "grounded_flag": true,
+      "sources": [
+        "damaged_item",
+        "size_exchange"
+      ],
+      "context_relevance": 0.4018,
+      "groundedness": 1.0,
+      "answer_relevance": 0.4531,
+      "behavior": "damaged_item",
+      "answer": "According to Nykaa policy: Customers must upload clear photographs of the outer shipping box, the damaged item, and the visible courier shipping label through the support portal."
+    },
+    {
+      "id": 11,
+      "topic": "International Shipping",
+      "query": "Do you ship cosmetics to addresses in Dubai or the UK?",
+      "expected_doc": "international_shipping",
+      "route": "rag",
+      "grounded_flag": true,
+      "sources": [
+        "international_shipping",
+        "size_exchange"
+      ],
+      "context_relevance": 0.4112,
+      "groundedness": 1.0,
+      "answer_relevance": 0.4515,
+      "behavior": "international_shipping",
+      "answer": "According to Nykaa policy: Nykaa ships select Beauty and Wellness catalog items internationally to over 30 countries across North America, Europe, and Asia."
+    },
+    {
+      "id": 12,
+      "topic": "Escalation Matrix",
+      "query": "How do I escalate an unresolved complaint if support hasn't replied for 48 hours?",
+      "expected_doc": "escalation_matrix",
+      "route": "rag",
+      "grounded_flag": true,
+      "sources": [
+        "escalation_matrix",
+        "damaged_item"
+      ],
+      "context_relevance": 0.5197,
+      "groundedness": 1.0,
+      "answer_relevance": 0.4962,
+      "behavior": "escalation_matrix",
+      "answer": "According to Nykaa policy: Unresolved matters may be submitted to the Grievance Officer, who provides a formal written resolution within 15 business days in compliance with statutory e-commerce guidelines."
+    },
+    {
+      "id": 13,
+      "topic": "Corporate Near-Miss",
+      "query": "What is Nykaa's current share price on the stock exchange?",
+      "expected_doc": null,
+      "route": "refused",
+      "grounded_flag": false,
+      "sources": [],
+      "context_relevance": 0.4177,
+      "groundedness": 1.0,
+      "answer_relevance": 1.0,
+      "behavior": "refused (guardrail)",
+      "answer": "I don't know based on the Nykaa knowledge base."
+    },
+    {
+      "id": 14,
+      "topic": "Pure Off-Topic",
+      "query": "How do I bake a chocolate cake at home?",
+      "expected_doc": null,
+      "route": "rag",
+      "grounded_flag": false,
+      "sources": [],
+      "context_relevance": 0.0881,
+      "groundedness": 1.0,
+      "answer_relevance": 1.0,
+      "behavior": "fallback (ungrounded)",
+      "answer": "I don't know based on the Nykaa knowledge base."
+    },
+    {
+      "id": 15,
+      "topic": "Ambiguous Return",
+      "query": "Can I return it?",
+      "expected_doc": null,
+      "route": "rag",
+      "grounded_flag": true,
+      "sources": [
+        "return_window",
+        "payment_failure"
+      ],
+      "context_relevance": 0.3668,
+      "groundedness": 1.0,
+      "answer_relevance": 0.438,
+      "behavior": "return_window",
+      "answer": "According to Nykaa policy: Electronics and styling appliances must be returned within 7 days in their original packaging with all included accessories."
+    }
+  ]
+}
